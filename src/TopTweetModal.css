@@ -1,0 +1,56 @@
+.top__TweetModal {
+  background-color: #fff;
+  text-align: center;
+  width: 400px;
+  box-shadow: rgb(101 119 134 / 20%) 0px 0px 15px,
+    rgb(101 119 134 / 15%) 0px 0px 3px 1px;
+  position: absolute;
+  top: 20%;
+  right: 1.5%;
+}
+
+.top__TweetModal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid rgb(235, 238, 240);
+}
+
+.top__TweetModal__header h2 {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.top__TweetModal__body {
+  padding: 20px 15px;
+  border-bottom: 1px solid rgb(235, 238, 240);
+  display: flex;
+  text-align: left;
+  gap: 10px;
+}
+
+.top__TweetModal__body p {
+  font-size: 18px;
+}
+
+.top__TweetModal__body span {
+  display: block;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.top__TweetModal__footer {
+  padding: 20px 15px;
+  /* border: 1px solid rgb(235, 238, 240); */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top__TweetModal__footer:hover,
+.top__TweetModal__body:hover {
+  background-color: rgba(235, 238, 240, 0.541);
+}

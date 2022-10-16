@@ -19,4 +19,5 @@ body {
   display: flex;
   max-width: 1350px;
   margin: 0 auto;
+  gap: 20px;
 }

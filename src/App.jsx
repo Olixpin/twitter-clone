@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Sidebar from "./Sidebar";
+import TweetFeed from "./TweetFeed";
 
 function App() {
   return (
@@ -8,7 +9,8 @@ function App() {
       {/* Sidebar */}
       <Sidebar />
       {/* Tweet Feed */}
-      <h1>Feed</h1>
+      <TweetFeed />
+
       {/* Widgets */}
     </div>
   );
