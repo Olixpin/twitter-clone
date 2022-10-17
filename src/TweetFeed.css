@@ -187,10 +187,17 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  width: 28px;
+  height: 28px;
 }
 
 .css-svgfill:hover {
   background: rgba(211, 211, 211, 0.212);
+}
+
+.css-svgfill > svg {
+  width: 16px;
+  height: 16px;
 }
 
 .tweetFeed__tweetButton {
@@ -198,4 +205,9 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+tspan {
+  font-size: 9px;
+  padding: 0 5px;
 }

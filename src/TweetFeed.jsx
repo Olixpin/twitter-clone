@@ -21,6 +21,28 @@ const TweetFeed = () => {
   const [whoCanReply, setWhoCanReply] = React.useState(false);
   const [whoCanDoWhat, setWhoCanDoWhat] = React.useState("Everyone can reply");
   const [whoCanDoWhatIcon, setWhoCanDoWhatIcon] = React.useState(<Global />);
+  const [textCount, setTextCount] = React.useState(0);
+  const [strokeDasharray, setStrokeDasharray] = React.useState(0);
+  const [strokeDashoffset, setStrokeDashoffset] = React.useState(0);
+
+  useEffect(() => {
+    // increase textcount as tweetMessages length increases
+    setTextCount(tweetMessage.length);
+  }, [tweetMessage]);
+
+  console.log(textCount);
+
+  useEffect(() => {
+    if (textCount === 0) {
+      setStrokeDasharray("0 56.5487");
+    } else if (textCount === 240) {
+      setStrokeDasharray("56.5487 56.5487");
+    } else if (textCount > 240 && textCount < 280) {
+      setStrokeDasharray(`${textCount / 5} 56.5487`);
+    } else {
+      setStrokeDasharray(`${textCount / 5} 56.5487`);
+    }
+  }, [textCount]);
 
   // handleWhoCanDoWhat
   const handleWhoCanDoWhat = (e) => {
@@ -157,65 +179,93 @@ const TweetFeed = () => {
                   </div>
                 </div>
                 <div className="tweetFeed__tweetButton">
-                  <div className="css-1dbjc4n r-1awozwy r-1777fci r-ywje51 r-1vsu8ta r-18qmn74 top-margin">
-                    <div
-                      role="progressbar"
-                      aria-valuemax="100"
-                      aria-valuemin="0"
-                      aria-valuenow="1"
-                      className="css-1dbjc4n r-1awozwy r-1777fci r-o7ynqc r-1i6wzkk"
-                    >
-                      <div className="css-1dbjc4n r-z80fyv r-ghumyc r-eafdt9 r-19hi5yp r-19wmn03">
-                        <svg
-                          height="25"
-                          width="25"
-                          viewBox="0 0 20 20"
-                          style={{
-                            overflow: "visible",
-                          }}
-                        >
-                          <circle
-                            cx="50%"
-                            cy="50%"
-                            fill="none"
-                            strokeWidth={2}
-                            r="9"
-                            stroke="#EFF3F4"
-                          ></circle>
-                          <circle
-                            cx="50%"
-                            cy="50%"
-                            fill="none"
-                            strokeWidth={2}
-                            r="9"
-                            stroke="#1D9BF0"
-                            strokeLinecap="round"
-                            style={{ strokeDasharray: "56.5487px 56.5487px" }}
-                          ></circle>
-                        </svg>
+                  {tweetMessage.length > 0 && (
+                    <div className="css-1dbjc4n r-1awozwy r-1777fci r-ywje51 r-1vsu8ta r-18qmn74 top-margin">
+                      <div
+                        role="progressbar"
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="1"
+                        className="css-1dbjc4n r-1awozwy r-1777fci r-o7ynqc r-1i6wzkk"
+                      >
+                        <div className="css-1dbjc4n r-z80fyv r-ghumyc r-eafdt9 r-19hi5yp r-19wmn03">
+                          <svg
+                            height="29"
+                            width="29"
+                            viewBox="0 0 20 20"
+                            style={{
+                              overflow: "visible",
+                            }}
+                          >
+                            <circle
+                              cx="50%"
+                              cy="50%"
+                              fill="none"
+                              strokeWidth={2}
+                              r="9"
+                              stroke="#EFF3F4"
+                            ></circle>
+                            <circle
+                              cx="50%"
+                              cy="50%"
+                              fill="none"
+                              strokeWidth={1}
+                              r="9"
+                              stroke={textCount < 240 ? "#1DA1F2" : "yellow"}
+                              strokeDasharray={strokeDasharray}
+                              strokeLinecap="round"
+                            ></circle>
+                            <g>
+                              <text>
+                                <tspan
+                                  x="50%"
+                                  y="50%"
+                                  dy="0.3em"
+                                  textAnchor="middle"
+                                  fill="#1DA1F2"
+                                  fontSize="12px"
+                                  fontWeight="bold"
+                                >
+                                  {
+                                    // textCount < 240 don't show the text count
+                                    textCount < 240
+                                      ? ""
+                                      : textCount > 240
+                                      ? 240 - textCount
+                                      : textCount
+                                  }
+                                </tspan>
+                              </text>
+                            </g>
+                          </svg>
+                        </div>
                       </div>
+                      <div className="css-1dbjc4n r-1awozwy r-1p0dtai r-1777fci r-1d2f490 r-ywje51 r-u8s1d r-zchlnj r-ipm5af"></div>
                     </div>
-                    <div className="css-1dbjc4n r-1awozwy r-1p0dtai r-1777fci r-1d2f490 r-ywje51 r-u8s1d r-zchlnj r-ipm5af"></div>
-                  </div>
-                  <div class="css-1dbjc4n r-1y5y3hm r-1m7hjod r-1dc2uwl r-1b7u577 r-92ng3h"></div>
+                  )}
+                  {tweetMessage.length > 0 && (
+                    <div class="css-1dbjc4n r-1y5y3hm r-1m7hjod r-1dc2uwl r-1b7u577 r-92ng3h"></div>
+                  )}
 
-                  <div
-                    className="
+                  {tweetMessage.length > 0 && (
+                    <div
+                      className="
                   css-svgfill
                   "
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      height="22"
-                      width="22"
-                      aria-hidden="true"
-                      class="r-1cvl2hr r-4qtqp9 r-yyyyoo r-10ptun7 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1janqcz"
                     >
-                      <g>
-                        <path d="M19.75 11H13V4.25c0-.553-.447-1-1-1s-1 .447-1 1V11H4.25c-.553 0-1 .447-1 1s.447 1 1 1H11v6.75c0 .553.447 1 1 1s1-.447 1-1V13h6.75c.553 0 1-.447 1-1s-.447-1-1-1z"></path>
-                      </g>
-                    </svg>
-                  </div>
+                      <svg
+                        viewBox="0 0 24 24"
+                        height="22"
+                        width="22"
+                        aria-hidden="true"
+                        class="r-1cvl2hr r-4qtqp9 r-yyyyoo r-10ptun7 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1janqcz"
+                      >
+                        <g>
+                          <path d="M19.75 11H13V4.25c0-.553-.447-1-1-1s-1 .447-1 1V11H4.25c-.553 0-1 .447-1 1s.447 1 1 1H11v6.75c0 .553.447 1 1 1s1-.447 1-1V13h6.75c.553 0 1-.447 1-1s-.447-1-1-1z"></path>
+                        </g>
+                      </svg>
+                    </div>
+                  )}
                   <button
                     style={{
                       // disable the button and make it not clickable when the tweet message is empty
