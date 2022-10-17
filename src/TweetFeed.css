@@ -69,6 +69,7 @@
   justify-content: center;
   transition: all 0.2s;
   cursor: pointer;
+  position: relative;
 }
 
 .tweetFeed__global:hover {
@@ -98,7 +99,7 @@
   /* gap: 20px; */
 }
 
-.tweetFeed__inputIcons > button {
+.tweetFeed__tweetButton > button {
   background: #1da1f2;
   border: none;
   outline: none;
@@ -109,9 +110,10 @@
   box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 28px;
   font-size: 20px;
   transition: all, 0.3s;
+  /* margin-left: 20px; */
 }
 
-.tweetFeed__inputIcons > button:hover {
+.tweetFeed__tweetButton > button:hover {
   background: #1a91da;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
 }
@@ -153,4 +155,47 @@
 
 .modal {
   position: relative;
+}
+
+.r-1m7hjod {
+  height: 31px;
+}
+
+.r-1y5y3hm {
+  background-color: rgb(185, 202, 211);
+}
+
+.r-92ng3h {
+  width: 1px;
+}
+
+.top-margin {
+  margin-top: 3px;
+}
+
+.tweetFeed__tweetButton {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.css-svgfill {
+  fill: #1da1f2;
+  border: 2px solid rgba(211, 211, 211, 0.438);
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.css-svgfill:hover {
+  background: rgba(211, 211, 211, 0.212);
+}
+
+.tweetFeed__tweetButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }

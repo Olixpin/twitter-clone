@@ -1,0 +1,78 @@
+.whoCanReply {
+  background-color: #fff;
+  /* text-align: center; */
+  width: 320px;
+  box-shadow: rgb(101 119 134 / 20%) 0px 0px 15px,
+    rgb(101 119 134 / 15%) 0px 0px 3px 1px;
+  position: absolute;
+  top: 130%;
+  left: -28%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  /* z-index: 2; */
+}
+
+.whoCanReply__header-top {
+  display: flex;
+  /* align-items: center; */
+  padding: 20px 15px;
+  flex-direction: column;
+  border: 1px solid rgb(235, 238, 240);
+}
+
+.whoCanReply__header-top > h2 {
+  font-size: 16px;
+}
+
+.whoCanReply__header-top > p {
+  font-size: 14px;
+  color: #5b7083;
+}
+
+.whoCanReply__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid rgb(235, 238, 240);
+}
+
+.whoCanReply__header:hover {
+  background-color: rgba(235, 238, 240, 0.541);
+}
+
+.whoCanReply__headerEveryone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.whoCanReply__headerEveryone__icon {
+  border-radius: 50%;
+  display: flex;
+  height: 40px;
+  width: 40px;
+  justify-content: center;
+  align-items: center;
+  background-color: #1da1f2;
+}
+
+.whoCanReply__headerEveryone__icon > svg {
+  fill: #fff;
+  height: 20px;
+  width: 20px;
+}
+
+.whoCanReply__headerEveryone > h3 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.whoCanReply__header__icon > svg {
+  fill: #1da1f2;
+  height: 20px;
+  width: 20px;
+  margin-top: 5px;
+}
