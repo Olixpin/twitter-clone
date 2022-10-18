@@ -13,6 +13,7 @@ import { Avatar } from "@mui/material";
 import TopTweetModal from "./TopTweetModal";
 import WhoCanReply from "./WhoCanReply";
 import { AlternateEmail, People } from "@mui/icons-material";
+import File from "./File";
 
 const TweetFeed = () => {
   const [tweetMessage, setTweetMessage] = React.useState("");
@@ -23,7 +24,7 @@ const TweetFeed = () => {
   const [whoCanDoWhatIcon, setWhoCanDoWhatIcon] = React.useState(<Global />);
   const [textCount, setTextCount] = React.useState(0);
   const [strokeDasharray, setStrokeDasharray] = React.useState(0);
-  const [strokeDashoffset, setStrokeDashoffset] = React.useState(0);
+  const [file, setFile] = React.useState(null);
 
   useEffect(() => {
     // increase textcount as tweetMessages length increases
@@ -66,6 +67,19 @@ const TweetFeed = () => {
   function handleTweetMessage(e) {
     setTweetMessage(e.target.value);
   }
+
+  // handle file
+  // useEffect(() => {
+  //   setFile(URL.createObjectURL(file));
+  // }, [file]);
+
+  const handleFile = (e) => {
+    setFile(URL.createObjectURL(e.target.files[0]));
+
+    return () => {
+      setFile(null);
+    };
+  };
 
   useEffect(() => {
     // get the height of the textarea
@@ -135,6 +149,9 @@ const TweetFeed = () => {
                 placeholder="What's happening?"
                 className="tweetFeed__textarea"
               />
+              {file && (
+                <File file={file} handleFile={handleFile} setFile={setFile} />
+              )}
               <div
                 style={
                   tweetMessage.length > 0
@@ -159,7 +176,8 @@ const TweetFeed = () => {
               </div>
               <div className="tweetFeed__inputIcons">
                 <div className="tweetFeed__Icons">
-                  <div>
+                  <div className="tweetFeed__Media">
+                    <input type="file" onChange={handleFile} />
                     <Image />
                   </div>
                   <div>
